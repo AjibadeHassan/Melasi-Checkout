@@ -47,3 +47,17 @@
     border: none;
     cursor: pointer;
 }
+
+@media (max-width: 900px) {
+    .Main_Container {
+        height: max-content;
+    }
+
+    .Content_Container {
+        height: 100%;
+    }
+    .Content_Container input {
+        width: 90%;
+    }
+    
+}

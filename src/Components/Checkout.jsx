@@ -1,21 +1,54 @@
 import React, {useState} from 'react';
 import './Checkout.css';
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from './Base'
+
+
+
 
 const Checkout = () => {
-    const [name, setName] = useState('')
+
+const dataCollectionRef = collection(db, 'entries')
+
+    const [names, setName] = useState('')
     const [address, setAddress] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
     const [goods, setGoods] = useState('')
     const [amount, setAmount] = useState('')
+
+
+    
+const handleSubmit = e => {
+  e.preventDefault()
+  if (names === '' || email === '' || phone ==='' || goods === '' || amount === '') return;
+
+  const myData = {
+      name: names,
+      email: email,
+      phone: phone,
+      goods: goods,
+      amount: amount
+  }
+  addDoc(dataCollectionRef, myData)
+   .then(()=>{
+      setName('');
+      setAddress('');
+      setPhone('')
+      setEmail('')
+      setGoods('')
+      setAmount('')
+
+   })
+} 
     
   return (
     <div className='Main_Container'>
         <h1>Melasi Stores</h1>
-        <section className='Content_Container'>
+        <form className='Content_Container' onSubmit={handleSubmit}>
             <input type="text"
             placeholder='Name'
-            value={name}
+            value={names}
             onChange={e => setName(e.target.value)}
             required
              /> 
@@ -48,14 +81,8 @@ const Checkout = () => {
             onChange={e => setAmount(e.target.value)}
             required
              />
-             <button className='Submit_Btn' onClick={()=>{
-                if(name && phone && email && amount && goods){
-                    console.log(name, phone, email, amount, address, goods)
-                }else {
-                    
-                }
-             }}>Submit</button>
-        </section>
+             <button className='Submit_Btn' type='submit'>Submit</button>
+        </form>
     </div>
   )
 }
