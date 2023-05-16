@@ -53,6 +53,10 @@
         height: max-content;
     }
 
+    .Main_Container h1 {
+        margin-bottom: 15px;
+    }
+
     .Content_Container {
         height: 100%;
     }
