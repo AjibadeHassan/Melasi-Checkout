@@ -37,6 +37,20 @@
     border-radius: 5px;
 }
 
+.Transact_Btn {
+    width: max-content;
+    height: 50px;
+    color: rgb(31, 8, 131);
+    padding: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.Transact_Btn:hover {
+    transform: scale(1.06);
+    transition: all 350ms ease-in;
+}
+
 .Submit_Btn {
     width: 140px;
     height: 40px;

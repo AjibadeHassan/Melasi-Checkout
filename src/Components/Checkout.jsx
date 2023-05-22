@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom'
 import './Checkout.css';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from './Base'
@@ -7,6 +8,7 @@ import { db } from './Base'
 
 
 const Checkout = () => {
+  const Nav = useNavigate()
 
 const dataCollectionRef = collection(db, 'entries')
 
@@ -45,6 +47,7 @@ const handleSubmit = e => {
   return (
     <div className='Main_Container'>
         <h1>Melasi Stores</h1>
+        <h2 className='Transact_Btn' onClick={()=> Nav('Transactions')} >See Transaction History</h2>
         <form className='Content_Container' onSubmit={handleSubmit}>
             <input type="text"
             placeholder='Name'
