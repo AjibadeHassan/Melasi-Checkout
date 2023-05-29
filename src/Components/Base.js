@@ -1,16 +1,16 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage"
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCM_THeoBrHw4r0SiwcSG1QPUi9B0A7ouE",
-  authDomain: "melasi-stores.firebaseapp.com",
-  projectId: "melasi-stores",
-  storageBucket: "melasi-stores.appspot.com",
-  messagingSenderId: "470818304092",
-  appId: "1:470818304092:web:e3d5d95be488903a9b7699"
+  apiKey: "AIzaSyBP7woUeP2cnUAa_dra0du7EAEXAQU2JhA",
+  authDomain: "melasi-stores-d7af4.firebaseapp.com",
+  projectId: "melasi-stores-d7af4",
+  storageBucket: "melasi-stores-d7af4.appspot.com",
+  messagingSenderId: "416114604586",
+  appId: "1:416114604586:web:584ce89ee4921abbbb2153"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const storage = getStorage(app); 

@@ -10,6 +10,7 @@ import { db } from './Base'
 const Checkout = () => {
   const Nav = useNavigate()
 
+  
 const dataCollectionRef = collection(db, 'entries')
 
     const [names, setName] = useState('')
@@ -23,15 +24,23 @@ const dataCollectionRef = collection(db, 'entries')
     
 const handleSubmit = e => {
   e.preventDefault()
-  if (names === '' || email === '' || phone ==='' || goods === '' || amount === '') return;
+  const Day = new Date().getMonth() + 1
+  const Daten = new Date().getDate()
+  const Hour = new Date().getHours()
+  const Min = new Date().getMinutes()
+  const myDate = `${Day} ${Daten}, ${Hour}:${Min}`
+
+  if (names === '' || email === '' || phone ==='' || goods === ''  || amount === '') return;
 
   const myData = {
       name: names,
       email: email,
       phone: phone,
       goods: goods,
-      amount: amount
+      amount: amount,
+      date: myDate
   }
+  console.log(myDate)
   addDoc(dataCollectionRef, myData)
    .then(()=>{
       setName('');
